@@ -13,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.primerapp.ui.theme.PrimerAppTheme
 import androidx.compose.material3.Button
-
+import com.example.primerapp.ui.screens.WelcomeScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,15 +22,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             PrimerAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                  WelcomeScreen(Modifier.padding(innerPadding))
                 }
             }
         }
     }
 }
+
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
