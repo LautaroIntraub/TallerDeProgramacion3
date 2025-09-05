@@ -1,5 +1,7 @@
 package com.example.primerapp.ui.screens
 
+import LoginButton
+import RegisterButton
 import android.graphics.Paint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +20,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -31,62 +35,53 @@ import com.example.primerapp.ui.theme.Poppins
 @Composable
 fun WelcomeScreen(modifier: Modifier) {
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().padding(26.dp),
+        horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
+        Spacer(modifier = Modifier.height(20.dp))
         Image(
-            modifier = Modifier.fillMaxWidth().align(Alignment.CenterHorizontally),
             painter = painterResource(id = R.drawable.welcome_image),
-            contentDescription = "Logo"
+            contentDescription = "Logo",
+            modifier = Modifier.fillMaxWidth().height(290.dp),
+            contentScale = ContentScale.Fit
         )
         Text(
+            text = stringResource(R.string.welcome_title),
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = Color(0xFF662AFF),
             fontFamily = Poppins,
-            fontSize = 32.sp,
+            fontSize = 28.sp,
+            lineHeight = 38.sp,
             fontWeight = FontWeight.ExtraBold,
             textAlign = TextAlign.Center,
-            text = "Discover Your \n" + "Dream Job here!",
         )
+        Spacer(modifier = Modifier.height(18.dp))
         Text(
+            text = stringResource(R.string.welcome_subtitle),
             modifier = Modifier.align(Alignment.CenterHorizontally),
             color = Color.Black,
             fontFamily = Poppins,
-            fontSize = 15.sp,
-            textAlign = TextAlign.Center,
-            text = "Explore all the most exciting jobs roles \n" + "based on your interest and study major."
+            fontSize = 13.5.sp,
+            textAlign = TextAlign.Center
 
         )
-        Spacer(modifier = Modifier.height(32.dp))
+        Spacer(modifier = Modifier.height(80.dp))
         Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
+            modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(16.dp) // espacio entre botones
         ) {
-            Button(
+            LoginButton(
+                text = stringResource(R.string.login_btn),
                 onClick = { /* acción Login */ },
-                modifier = Modifier.weight(1f).height(50.dp), // ocupa mitad del Row
-                shape = RoundedCornerShape(10.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF662AFF).copy(alpha = 0.28f),
-                    contentColor = Color(0xFF662AFF)
-                )
-            ) {
-                Text("Login", fontSize = 18.sp)
-            }
+                modifier = Modifier.weight(1f).height(50.dp) // ocupa mitad del Row
+            )
 
-            Button(
-                onClick = { /* acción Signup */ },
-                modifier = Modifier.weight(1f).height(50.dp), // ocupa mitad del Row
-                shape = RoundedCornerShape(10.dp),
-                colors = ButtonDefaults.buttonColors(
-                    containerColor = Color(0xFF8352FF),
-                    contentColor = Color.White
-                )
-            ) {
-                Text("Register", fontSize = 18.sp)
-            }
+            RegisterButton(
+                text = stringResource(R.string.register_btn),
+                onClick = { /* acción Register */ },
+                modifier = Modifier.weight(1f).height(50.dp) // ocupa mitad del Row
+            )
         }
     }
 }
