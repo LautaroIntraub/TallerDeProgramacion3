@@ -1,15 +1,61 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
+# Gradle
+.gradle/
+build/
+*/build/
+
+# Local configuration
 local.properties
+*.iml
+.idea/
+
+# Log files
+*.log
+
+# Android Studio captures
+captures/
+
+# External native build folder generated in Android Studio 2.2+
+.externalNativeBuild/
+
+# IntelliJ
+*.ipr
+*.iws
+
+# Kotlin
+*.kotlin_module
+
+# Jetpack Compose generated files
+.compose/
+
+# Android
+*.apk
+*.ap_
+*.aab
+*.dex
+*.class
+*.so
+*.jar
+*.war
+*.ear
+
+# Proguard
+proguard-rules.pro
+
+# Generated files
+gen/
+bin/
+out/
+tmp/
+
+# Gradle Wrapper
+gradle-wrapper.jar
+
+# Misc
+.DS_Store
+*.swp
+*.swo
+*.tmp
+*.bak
+*.orig
+*.rej
+*~ 
