@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.primerapp.ui.theme.PrimerAppTheme
 import androidx.compose.material3.Button
+import com.example.primerapp.ui.screens.LoginScreen
 import com.example.primerapp.ui.screens.WelcomeScreen
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +23,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             PrimerAppTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                  WelcomeScreen(Modifier.padding(innerPadding))
+                  //WelcomeScreen(Modifier.padding(innerPadding))
+                    LoginScreen(Modifier.padding(innerPadding))
                 }
             }
         }
