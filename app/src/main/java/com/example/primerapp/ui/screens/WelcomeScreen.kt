@@ -2,19 +2,22 @@ package com.example.primerapp.ui.screens
 
 import LoginButton
 import RegisterButton
-import android.graphics.Paint
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -28,14 +31,37 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.example.primerapp.R
 import com.example.primerapp.ui.theme.Poppins
 
 
 @Composable
-fun WelcomeScreen(modifier: Modifier) {
+fun WelcomeScreen(modifier: Modifier, navController:NavHostController) {
+    Box(modifier=Modifier.fillMaxSize()) {
+        Box(
+            modifier = Modifier
+                .size(280.dp)
+                .align(Alignment.TopStart)
+                .offset(x = -85.dp, y = 35.dp)
+                .background(Color(0xFFF3E8FF), CircleShape) // lila clarito
+        )
+
+        Box(
+            modifier = Modifier
+                .size(320.dp)
+                .align(Alignment.BottomEnd)
+                .offset(x = 110.dp, y = 80.dp)
+                .background(Color(0xFFEDE7F6), CircleShape)
+        )
+
+    }
+
+
+
     Column(
-        modifier = Modifier.fillMaxSize().padding(26.dp),
+        modifier = Modifier.fillMaxSize().padding(3.dp).verticalScroll(rememberScrollState()),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Top
     ) {
@@ -73,13 +99,13 @@ fun WelcomeScreen(modifier: Modifier) {
         ) {
             LoginButton(
                 text = stringResource(R.string.login_btn),
-                onClick = { /* acción Login */ },
+                onClick = { navController.navigate("login") },
                 modifier = Modifier.weight(1f).height(50.dp) // ocupa mitad del Row
             )
 
             RegisterButton(
                 text = stringResource(R.string.register_btn),
-                onClick = { /* acción Register */ },
+                onClick = { navController.navigate("register") },
                 modifier = Modifier.weight(1f).height(50.dp) // ocupa mitad del Row
             )
         }
@@ -89,5 +115,5 @@ fun WelcomeScreen(modifier: Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun WelcomeScreenPreview() {
-    WelcomeScreen(Modifier.fillMaxSize())
+    WelcomeScreen(Modifier.fillMaxSize(), rememberNavController())
 }

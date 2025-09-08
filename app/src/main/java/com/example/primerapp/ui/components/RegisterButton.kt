@@ -17,7 +17,7 @@ import com.example.primerapp.R
 fun RegisterButton(
     modifier: Modifier = Modifier,
     text: String = stringResource(R.string.register_btn),
-    onClick: () -> Unit
+    onClick: () -> Unit = { }
 ) {
     Button(
     onClick = onClick,
