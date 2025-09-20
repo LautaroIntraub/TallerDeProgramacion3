@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Segundo challenge</string>
+    <string name="top_bar_shop_list">Shop list</string>
+    <string name="card_image_description">botas</string>
+    <string name="card_title_text">Leather boots</string>
+    <string name="card_price_text">27,5 $</string>
+    <string name="card_description_text">Great warm shoes from the artificial leather. You \n can buy this model only in our shop</string>
+    <string name="add_to_favourite_button_text">Add to favourite</string>
+    <string name="buy_button_text">Buy</string>
+    <string name="buy_button_mas_text">+ Buy</string>
+    <string name="select_size">Select size</string>
+    <string name="count_of_product">Count of product\n</string>
+    <string name="favourites">Favourites</string>
+    <string name="settings">Settings</string>
+</resources>
