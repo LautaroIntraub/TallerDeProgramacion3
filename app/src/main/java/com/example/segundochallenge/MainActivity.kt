@@ -36,7 +36,7 @@ class MainActivity : ComponentActivity() {
                             ItemDetailScreen(
                                 onBack = { navController.popBackStack() },
                                 onBuy = { itemId, size ->
-                                    // Aquí podés manejar la compra
+
                                 })
                         }
                     }

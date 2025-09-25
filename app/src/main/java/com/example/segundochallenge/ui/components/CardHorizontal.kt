@@ -20,6 +20,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -49,14 +50,13 @@ fun CardHorizontal(
     ) {
         Row(
             modifier = Modifier
-                .fillMaxSize(), // ocupa todo el Card
+                .fillMaxSize().padding(8.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // Círculo con número
             Box(
                 modifier = Modifier
                     .size(50.dp)
-                    .padding(start = 8.dp) // un pequeño margen si querés
+                    .padding(start = 8.dp)
                     .background(Color(0xFF9A4521), shape = CircleShape),
                 contentAlignment = Alignment.Center
             ) {
@@ -94,8 +94,10 @@ fun CardHorizontal(
                 contentDescription = stringResource(R.string.card_image_description),
                 modifier = Modifier
                     .height(100.dp) // altura fija
-                    .width(100.dp), // ancho fijo
-                contentScale = ContentScale.Crop
+                    .width(100.dp).clip(RoundedCornerShape(20.dp)), // ancho fijo
+                contentScale = ContentScale.Crop,
+
+
             )
         }
     }
